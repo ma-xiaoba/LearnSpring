@@ -1,4 +1,4 @@
-<img src="E:\myfiles\待处理\笔记整理\spring\图片1.png" alt="图片1" style="zoom:48%;" />
+<img src="图片1.png" alt="图片1" style="zoom:48%;" />
 
 # Spring架构
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--
+        1.解析xml文件
+        2.取出每个节点属性对用的值
+        3.通过反射的方式创建对象
+        Grade grade = Class.forName().newInstance();]
+        4.赋值setXXX();
+    -->
+
+    <bean id="grade" class="com.mzw.bean.Grade" init-method="init" destroy-method="destroy">
+        <property name="gname" value="JAVA-2019"></property>
+        <property name="gid" value="190"></property>
+    </bean>
+    <bean id="user" class="com.mzw.bean.User" init-method="init">
+        <property name="id" value="12"></property>
+        <property name="name" value="张三"></property>
+        <property name="remark" value="single dog"></property>
+    </bean>
+    <bean class="com.mzw.processor.SpringBeanPostProcessor">
+
+    </bean>
+</beans>

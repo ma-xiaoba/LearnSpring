@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--全限定名：完整包名+类命
+        id bean的唯一性id
+        class 实例化创建的全限定名
+
+     执行过程：
+     1、加载XML配置文件
+     2、解析XML文件中的每一个节点
+     id = userDao     class = “。。。。”
+     3、通过反射的机制创建对象
+     UserDao  userDao =  Class。forName("com.mzw.dao.UserDao").newInstance();
+
+     默认是单例模式
+
+    -->
+    <bean id="userDao" name = "u1,u2,u3" class="com.mzw.dao.UserDao">
+
+    </bean>
+
+    <bean id="user"  class="com.mzw.bean.User">
+        <!--
+            set(属性)注入
+            解析name -》 setName("...");
+        -->
+        <property name="id" value="1001"></property>
+        <property name="name" value="李四"></property>
+        <property name="remark" value="我爱学习"></property>
+    </bean>
+
+    <bean id="student" name="s1,s2,s3" class="com.mzw.bean.Student">
+        <!--构造器注入
+            index索引下标的方式（构造方法的顺序 最左侧为0）
+        -->
+        <constructor-arg value="23"></constructor-arg>
+        <constructor-arg value="王五"></constructor-arg>
+    </bean>
+
+    <bean id="grade" class="com.mzw.bean.Grade">
+        <property name="gid" value="10001"></property>
+        <property name="gname" value="数据结构"></property>
+    </bean>
+    <bean id="student1"  class="com.mzw.bean.Student">
+        <!--构造器注入
+            name注入
+         -->
+        <constructor-arg name="age" value="23"></constructor-arg>
+        <constructor-arg name="name" value="王五"></constructor-arg>
+        <property name="grades" >
+           <list>
+               <ref bean="grade"></ref>
+               <bean class="com.mzw.bean.Grade">
+                   <property name="gid" value="10002"></property>
+                   <property name="gname" value="Socket编程"></property>
+               </bean>
+           </list>
+        </property>
+        <property name="infos">
+            <list>
+                <value>单身狗</value>
+                <value>爱学习</value>
+            </list>
+        </property>
+
+    </bean>
+
+    <!--外部引用-->
+    <bean id="user1" class="com.mzw.bean.User">
+        <property name="id" value="10023231"></property>
+        <property name="name" value="张三"></property>
+        <property name="role" ref="role"></property>
+        <property name="remark" value="爱学习"></property>
+    </bean>
+    <bean id="role" class="com.mzw.bean.Role">
+        <property name="rname" value="管理员"></property>
+    </bean>
+
+    <!--内部引用-->
+    <bean id="user2" class="com.mzw.bean.User">
+        <property name="id" value="10023231"></property>
+        <property name="name" value="张三"></property>
+        <property name="role">
+            <bean id="role" class="com.mzw.bean.Role">
+                <property name="rname" value="管理员"></property>
+            </bean>
+        </property>
+        <property name="remark" value="爱学习"></property>
+    </bean>
+
+    <!-- more bean definitions go here -->
+</beans>

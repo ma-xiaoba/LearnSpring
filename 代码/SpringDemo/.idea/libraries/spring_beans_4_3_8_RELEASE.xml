@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="spring-beans-4.3.8.RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-beans-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-context-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-core-4.3.8.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/spring-expression-4.3.8.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://E:/lib/java_lib/spring/spring4/spring-framework-4.3.8.RELEASE/libs/spring-context-4.3.8.RELEASE-sources.jar!/" />
+      <root url="jar://E:/lib/java_lib/spring/spring4/spring-framework-4.3.8.RELEASE/libs/spring-beans-4.3.8.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

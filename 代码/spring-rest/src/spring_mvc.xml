@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+
+    <context:component-scan base-package="com.mzw" use-default-filters="false">
+        <context:include-filter type="annotation"
+                                expression="org.springframework.stereotype.Controller"></context:include-filter>
+    </context:component-scan>
+
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+    <!--
+        处理静态资源
+    -->
+    <mvc:default-servlet-handler/>
+
+    <!--启动注解驱动-->
+    <mvc:annotation-driven/>
+
+
+    <!-- SpringMVC文件上传-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--请求的编码格式必须和用户JSP的编码一致，以便正确读取表单中的内容。
+        uploadTempDir :文件上传过程中的临时目录，上传完成后，临时文件会自动删除
+        maxuploadSize:设置文件上传大小上限(单位为字节)
+        -->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!--<property name="maxUploadSize" value="1024000"/>-->
+        <property name="uploadTempDir" value="uploadFile/temp"></property>
+    </bean>
+
+
+</beans>

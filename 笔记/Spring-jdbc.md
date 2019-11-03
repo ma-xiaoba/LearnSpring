@@ -1,6 +1,6 @@
 # Spring架构
 
-![图片1](E:\myfiles\待处理\笔记整理\spring\图片1.png)
+![图片1](图片1.png)
 
 # Spring DAO（JDBC模块）
 

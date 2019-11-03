@@ -132,7 +132,7 @@ private或者默认可见性的方法.上使用@Transactional注解,这将被忽
 
 当前转账（1对1）方法被另一个事务方法调用时，它默认会在现有的事务内运行。这个默认的传播行为就是REQUIRED。因此在全操作方法的开始和终止边界内只有一个事务。这个事务只在全操作方法结束的时候被提交,事务传播属性可以在`@Transactional`注解的propagation属性中定义。
 
-![image-20191102145430163](E:\myfiles\待处理\笔记整理\spring\image-20191102145430163.png)
+[image-20191102145430163](image-20191102145430163.png)
 
 ```java
 @Transactional(propagation = Propagation.REQUIRES_NEW)
@@ -174,7 +174,7 @@ public int transferA11(int cardId, int[] targetCardIds, double balance) {
 
 该方法必须启动一个新的事务，并且在自己的事务内运行。如果有事务在运行就先将他挂起。
 
-![image-20191102154807647](E:\myfiles\待处理\笔记整理\spring\image-20191102154807647.png)
+[image-20191102154807647](image-20191102154807647.png)
 
 ##### 注意:
 

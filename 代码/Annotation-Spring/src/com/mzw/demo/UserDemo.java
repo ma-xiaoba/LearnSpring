@@ -7,8 +7,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class UserDemo {
-
-
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationcontext.xml");
         UserService userService = (UserServiceImpl)applicationContext.getBean("userServiceImpl");
